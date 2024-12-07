@@ -1,0 +1,746 @@
+@import "common/variables";
+@import "common/mixin";
+
+.banner-wrap {
+
+    display: grid;
+    gap: rem(15px);
+
+    @include mq("md", min) {
+        margin-top: rem(10px);
+    }
+
+    .p-banner {
+        overflow: hidden;
+        position: relative;
+        grid-column: 1/4;
+        grid-row: 1/2;
+
+        @include mq("md", min) {
+            grid-column: 1/3;
+            grid-row: 1/3;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .img {
+        grid-column: 1/4;
+
+        @include mq("md", min) {
+            grid-column: 3/4;
+        }
+
+        &.--img-01 {
+            grid-row: 2/3;
+
+            @include mq("md", min) {
+                grid-row: 1/2;
+            }
+        }
+
+        &.--img-02 {
+            grid-row: 3/4;
+
+            @include mq("md", min) {
+                grid-row: 2/3;
+            }
+        }
+    }
+}
+
+.p-cate {
+    margin-top: rem(30px);
+
+    @include mq("md", min) {
+        margin-top: rem(50px);
+    }
+
+    &__content {
+        position: relative;
+
+        .swiper-button-prev {
+            left: 0;
+
+            @include mq("md", min) {
+                left: rem(-30px);
+            }
+        }
+
+        .swiper-button-next {
+            right: 0;
+
+            @include mq("md", min) {
+                right: rem(-30px);
+            }
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: rem(30px);
+
+            @include mq("md") {
+                color: $white;
+            }
+        }
+    }
+
+    &__item {
+
+        display: block;
+        border-radius: rem(10px);
+        text-align: center;
+
+        @include mq("md", min) {
+            margin: 0 rem(15px);
+            border-radius: rem(20px);
+            text-align: center;
+
+        }
+
+        &__img {
+            position: relative;
+            width: rem(120px);
+            height: rem(120px);
+            margin: auto;
+            padding-top: rem(11px);
+            transition: all 300ms linear 0ms;
+
+            img {
+                border-radius: 50%;
+                width: rem(120px);
+                height: rem(120px);
+                object-fit: cover;
+                margin-left: rem(2px);
+            }
+        }
+
+        &:hover {
+            .p-cate__item__img {
+                transform: rotateY(180deg);
+            }
+        }
+
+        &__ttl {
+            font-size: rem(18px);
+            font-weight: bold;
+            margin: rem(15px) 0;
+
+
+            @include mq("md", min) {
+                font-size: rem(17px);
+                margin: rem(15px) 0 0;
+            }
+        }
+    }
+
+    &__des {
+        margin-top: rem(40px);
+        font-size: rem(14px);
+        line-height: 1.6;
+
+        @include mq("md", min) {
+            margin-top: rem(60px);
+            font-size: rem(20px);
+            line-height: calc(26 / 20);
+        }
+    }
+}
+
+.p-commit {
+    background: #f4fafd;
+    margin: rem(20px) 0 0;
+    padding: rem(30px) 0;
+
+    @include mq("md", min) {
+        padding: rem(50px) 0;
+        margin: rem(50px) 0 0;
+    }
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: rem(20px);
+
+        @include mq("md", min) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: rem(30px);
+        }
+    }
+
+    &__item {
+        text-align: center;
+        background: #fff;
+        padding: rem(10px) rem(10px) rem(20px);
+        border-radius: rem(10px);
+
+        @include mq("md", min) {
+            padding: rem(20px);
+        }
+
+        &__img {
+            width: rem(60px);
+            height: rem(60px);
+            margin: auto;
+
+            @include mq("md", min) {
+                width: rem(80px);
+                height: rem(80px);
+            }
+        }
+
+        &__ttl {
+            font-size: rem(16px);
+            font-weight: $font-weight-bold;
+            margin: rem(10px) 0;
+
+            @include mq("md", min) {
+                font-size: rem(18px);
+                margin: rem(20px) 0;
+            }
+        }
+
+        &__txt {
+            font-size: rem(14px);
+            color: #666;
+
+            @include mq("md", min) {
+                font-size: rem(16px);
+            }
+        }
+    }
+}
+
+.p-search {
+    text-align: center;
+    background: #fcf9f4;
+    padding: rem(20px);
+
+    @include mq("md", min) {
+        padding: rem(60px) rem(20px);
+    }
+
+    &__ttl {
+        color: $primary-2;
+        font-weight: bold;
+        font-size: rem(20px);
+        margin-bottom: rem(10px);
+
+        @include mq("md", min) {
+            font-size: rem(30px);
+            margin-bottom: rem(30px);
+        }
+    }
+
+    &__content {
+        max-width: rem(600px);
+        margin: auto;
+        position: relative;
+
+        input {
+            width: 100%;
+            border: 1px solid $primary;
+            height: rem(47px);
+            padding-left: rem(20px);
+            border-radius: rem(25px);
+
+            @include mq("md", min) {
+                border: rem(2px) solid $primary;
+                height: rem(55px);
+                padding-left: rem(20px);
+            }
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        right: rem(16px);
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(18px);
+
+        @include mq("md", min) {
+            width: rem(25px);
+        }
+    }
+}
+
+.p-product {
+    background: #f8f8f8;
+    padding: rem(30px) 0;
+
+    @include mq("md", min) {
+        padding: rem(50px) 0;
+    }
+
+    &__section {
+        margin-bottom: rem(30px);
+
+        @include mq("md", min) {
+            margin-bottom: rem(50px);
+        }
+    }
+
+    &__ttl {
+        text-align: center;
+        font-size: rem(20px);
+        color: $primary;
+
+        @include mq("md", min) {
+            font-size: rem(30px);
+        }
+    }
+
+    &__scroll {
+
+        @include mq("md") {
+            overflow-x: scroll;
+        }
+    }
+
+    &__cate {
+
+        margin-top: rem(25px);
+        display: flex;
+        gap: rem(10px);
+
+        @include mq("md") {
+            min-width: rem(580px);
+        }
+
+        @include mq("md", min) {
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tlink {
+            background: #fff;
+            padding: rem(8px) rem(25px);
+            border: 1px solid #ccc;
+            border-radius: rem(5px);
+            font-size: rem(16px);
+
+            @include mq("md", min) {
+                font-size: rem(17px);
+            }
+
+            &:hover,
+            &.active {
+                background: $primary;
+                color: #fff;
+                border: 1px solid $primary;
+            }
+        }
+    }
+
+    &-hot {
+        background: url(../images/enroll-bg.jpg) no-repeat left center;
+        background-size: cover;
+        padding: rem(30px) 0;
+
+        @include mq("md", min) {
+            padding: rem(60px) 0;
+        }
+
+        &__ttl {
+            color: $white;
+            border-bottom: 1px solid #fff;
+            padding-bottom: rem(10px);
+        }
+
+        &__content {
+            margin-top: rem(20px);
+            position: relative;
+
+            @include mq("md", min) {
+                margin-top: rem(50px);
+            }
+
+            .product-item {
+                margin: 0 rem(15px);
+            }
+
+            .swiper-button-prev {
+                left: rem(-50px);
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                background: #fff;
+                width: rem(50px);
+                height: rem(50px);
+                border-radius: 50%;
+                right: rem(-50px);
+
+                @include mq("md") {
+                    display: none;
+                }
+
+                &:hover {
+                    background: $primary-2;
+
+                    &:after {
+                        color: $white;
+                    }
+                }
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: rem(18px);
+            }
+        }
+    }
+}
+
+.p-derve {
+    padding: rem(20px) 0;
+    background: $primary-2;
+    color: $white;
+
+    @include mq("md", min) {
+        padding: rem(50px) 0;
+    }
+
+    &__wrap {
+        @include mq("md", min) {
+            display: flex;
+            gap: rem(100px);
+            justify-content: space-between;
+        }
+    }
+
+    &__info {
+        @include mq("md", min) {
+            width: 50%;
+        }
+    }
+
+    &__like {
+        @include mq("md", min) {
+            width: 30%;
+        }
+    }
+
+    &__phone {
+        font-size: rem(23px);
+        font-weight: bold;
+        background: url(../images/phone_icon.png) no-repeat left center;
+        background-size: contain;
+        margin-top: rem(20px);
+        padding-left: rem(50px);
+        margin-bottom: rem(20px);
+
+        @include mq("md", min) {
+            font-size: rem(30px);
+            margin-bottom: rem(20px);
+            margin-top: rem(20px);
+            padding-left: rem(70px);
+        }
+    }
+
+    &__ttl {
+        font-weight: bold;
+        font-size: rem(16px);
+        margin-bottom: rem(5px);
+
+        @include mq("md", min) {
+            font-size: rem(30px);
+            margin-bottom: rem(10px);
+        }
+    }
+
+    &__txt {
+        @include mq("md") {
+            font-size: rem(14px);
+        }
+    }
+}
+
+.p-customer {
+    background: #fcf9f4;
+    padding: rem(20px) 0;
+
+    @include mq("md", min) {
+        padding: rem(50px) 0;
+    }
+
+    .swiper-customer {
+        position: relative;
+        padding-bottom: rem(50px);
+
+        @include mq("md", min) {
+            padding-bottom: rem(70px);
+        }
+    }
+
+    &__ttl {
+        text-align: center;
+        margin-bottom: rem(20px);
+
+        @include mq("md", min) {
+            margin-bottom: rem(50px);
+        }
+
+        &__label {
+            font-size: rem(30px);
+        }
+
+        &__sub {
+            font-size: rem(14px);
+            color: #666;
+            margin-top: rem(10px);
+
+            @include mq("md", min) {
+                font-size: rem(17px);
+            }
+        }
+    }
+
+    .customer-item {
+        background: $white;
+        border-radius: rem(10px);
+        padding: rem(15px);
+
+        @include mq("md", min) {
+            border-radius: rem(20px);
+            margin: 0 rem(15px);
+            padding: rem(30px);
+        }
+
+        &__head {
+            display: flex;
+            gap: rem(10px);
+            align-items: center;
+
+            @include mq("md", min) {
+                gap: rem(20px);
+            }
+
+            &__img {
+                border-radius: 50%;
+                width: rem(60px);
+                height: rem(60px);
+                overflow: hidden;
+                border: rem(1px) solid $primary-2;
+
+                @include mq("md", min) {
+                    width: rem(80px);
+                    height: rem(80px);
+                    border: rem(2px) solid $primary-2;
+                }
+            }
+
+            &__ttl {
+                font-size: rem(16px);
+                padding-right: rem(30px);
+                display: inline-block;
+                position: relative;
+
+                @include mq("md", min) {
+                    font-size: rem(20px);
+                    padding-right: rem(50px);
+                }
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    right: 0;
+                    top: 0;
+                    background: url(../images/ic_don.svg) no-repeat top center;
+                    background-size: contain;
+                    width: rem(26px);
+                    height: rem(15px);
+
+                    @include mq("md", min) {
+                        width: rem(36px);
+                        height: rem(22px);
+                    }
+                }
+            }
+
+            &__pos {
+                color: #666;
+
+                @include mq("md") {
+                    font-size: rem(14px);
+                }
+            }
+        }
+
+        &__txt {
+            font-style: italic;
+            font-size: rem(14px);
+            margin-top: rem(10px);
+            color: #666;
+
+            @include mq("md", min) {
+                font-size: rem(17px);
+                margin-top: rem(20px);
+            }
+        }
+    }
+}
+
+.p-news {
+    padding: rem(50px) 0;
+
+    &__ttl {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: rem(30px);
+
+        .viewmore {
+            border: 1px solid #666;
+            position: relative;
+            border-radius: rem(30px);
+            padding: rem(5px) rem(40px) rem(5px) rem(20px);
+            text-align: left;
+
+            @include mq("md", min) {
+                padding: rem(10px) rem(40px) rem(10px) rem(20px);
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                right: rem(20px);
+                top: 50%;
+                transform: translateY(-50%);
+                width: rem(10px);
+                height: rem(15px);
+                background: url(../images/ic_right.svg) no-repeat top center;
+                background-size: cover;
+                transition: all 0.3s;
+            }
+
+            &:hover {
+                color: $primary;
+
+                &:after {
+                    right: rem(15px);
+                }
+            }
+        }
+    }
+
+    &__wrap {
+        @include mq("md", min) {
+            display: flex;
+            gap: rem(15px);
+        }
+    }
+
+    &__main {
+        display: grid;
+        gap: rem(10px);
+        grid-template-columns: repeat(2, 1fr);
+
+        @include mq("md", min) {
+
+            gap: rem(15px);
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    &__col {
+        margin-top: rem(20px);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(15px);
+
+        @include mq("md", min) {
+
+            margin-top: 0;
+        }
+    }
+
+    &__primary {
+        display: block;
+        overflow: hidden;
+        border-radius: rem(10px);
+        position: relative;
+
+        &:after {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(transparent, #000);
+        }
+
+        &__ttl {
+            margin-top: rem(10px);
+            font-size: rem(14px);
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            z-index: 1;
+            padding: rem(10px);
+
+            @include mq("md", min) {
+                margin-top: rem(20px);
+                font-size: rem(20px);
+                padding: rem(20px);
+                width: 100%;
+            }
+
+            &.--second {
+                font-size: rem(12px);
+                padding: rem(10px);
+                @include mq("md", min) {
+                    font-size: rem(14px);
+                }
+            }
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &.item-01 {
+            grid-column: 1/3;
+            grid-row: 1/3;
+        }
+    }
+
+    // &__item {
+
+    //     display: block;
+    //     overflow: hidden;
+    //     border-radius: rem(10px);
+
+    //     img {
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //     }
+
+    //     .ttl {
+    //         font-size: rem(14px);
+    //         font-weight: bold;
+    //         margin-bottom: rem(10px);
+
+    //         @include mq("md", min) {
+    //             font-size: rem(17px);
+    //         }
+
+    //         a:hover {
+    //             color: $primary;
+    //         }
+    //     }
+    // }
+}

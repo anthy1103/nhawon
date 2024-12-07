@@ -1,0 +1,597 @@
+.breadcumb {
+    margin: rem(15px) 0;
+
+    @include mq("md", min) {
+        margin: rem(15px) 0;
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        margin-right: rem(5px);
+        padding-right: rem(10px);
+
+        @include mq("md", min) {
+            margin-right: rem(10px);
+            padding-right: rem(13px);
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+
+        &:after {
+            content: "»";
+            position: absolute;
+            right: rem(-3px);
+            top: rem(-3px);
+            font-size: rem(20px);
+        }
+
+        a {
+            font-size: rem(14px);
+
+            @include mq("md", min) {
+                font-size: rem(18px);
+            }
+        }
+
+        span {
+
+            color: $primary;
+
+            @include mq("md") {
+                font-size: rem(14px);
+            }
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.img_cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img_scale {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.link_right {
+    z-index: 12;
+    position: fixed;
+    right: 0;
+    top: rem(10px);
+    background: red;
+    color: #fff;
+    display: inline-block;
+    padding: rem(10px) rem(30px);
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: rem(30px) 0 0 rem(30px);
+    box-shadow: 0 rem(10px) rem(20px) #ccccccab;
+    transition: all 0.3s;
+
+    @include mq("md") {
+        font-size: rem(14px);
+        top: rem(50px);
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.loadmore {
+    text-align: center;
+    margin-top: rem(20px);
+
+    .btn_load {
+        display: inline-block;
+        background: $primary;
+        color: #fff;
+        padding: rem(10px) rem(30px);
+        border-radius: rem(50px);
+        transition: all 0.3s;
+
+        &:hover {
+            background: $primary-2;
+        }
+    }
+}
+
+
+
+.p-product {
+    &__wrap {
+        display: grid;
+        margin-top: rem(20px);
+        gap: rem(15px);
+        grid-template-columns: repeat(2, 1fr);
+
+        @include mq("md", min) {
+            margin-top: rem(40px);
+            gap: rem(30px);
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}
+
+.product-item {
+    background: $white;
+    text-align: center;
+    padding: rem(5px);
+    box-shadow: 0 rem(5px) rem(15px) 0 rgba(0, 0, 0, 0.1);
+    display: block;
+    border-radius: rem(5px);
+
+    @include mq("md", min) {
+        padding: rem(10px);
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+
+    &__img {
+        height: rem(150px);
+        object-fit: scale-down;
+        transition: all 0.3s;
+        width: 100%;
+
+        @include mq("md", min) {
+            height: rem(210px);
+
+            &.--hot {
+                height: rem(300px);
+            }
+        }
+
+    }
+
+    &__ttl {
+        margin: rem(5px) 0;
+        font-size: rem(14px);
+        transition: all 0.3s;
+        line-height: 1.4;
+
+        @include mq("md", min) {
+            font-size: rem(16px);
+            margin: rem(15px) 0;
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.btn-buy {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 11;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 rem(10px) rgb(0 0 0 / 25%);
+    padding: rem(10px) 0;
+
+    .btn_buy_shoppe {
+        background: red;
+        color: #fff;
+        padding: rem(6px) rem(30px);
+        display: inline-block;
+        font-size: rem(15px);
+        font-weight: 600;
+        border-radius: rem(30px);
+        animation: fadeScale 1s infinite;
+
+        @include mq("md", min) {
+            font-size: rem(20px);
+            padding: rem(10px) rem(50px);
+        }
+
+        span {
+            animation: flip 3s infinite;
+            display: inline-block;
+            animation-delay: calc(0.2s * var(--i));
+        }
+    }
+}
+
+@keyframes fadeScale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flip {
+
+    0%,
+    80% {
+        transform: rotateY(360deg);
+    }
+}
+
+.pagination {
+    margin-top: rem(30px);
+
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: rem(8px);
+
+        li {
+            .page-number {
+                cursor: pointer;
+                display: block;
+                width: rem(35px);
+                height: rem(35px);
+                background: $white;
+                border: 1px solid #ccc;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover,
+                &.active {
+                    background: $primary;
+                    color: $white;
+                    border: 1px solid $primary;
+                }
+            }
+        }
+    }
+}
+
+.f-block {
+    border: 1px solid $primary;
+
+    &.--cate {
+        background: #f2f2f2;
+        border: none;
+        margin-bottom: rem(20px);
+    }
+
+    &__ttl {
+        font-size: rem(20px);
+        background: $primary;
+        color: $white;
+        text-transform: uppercase;
+        padding: rem(8px);
+        font-weight: 600;
+        padding-left: rem(20px);
+    }
+
+    &__lst {
+        padding: rem(10px) rem(20px) rem(20px);
+
+        li {
+            &:last-child {
+                a {
+                    border-bottom: none;
+                }
+            }
+
+            a {
+                display: block;
+                border-bottom: 1px solid #ccc;
+                padding: rem(10px) 0;
+                font-weight: 500;
+                font-size: rem(17px);
+                background: url(../images/ic_right.svg) no-repeat left center;
+                background-size: rem(10px) rem(20px);
+                padding-left: rem(20px);
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    &__item {
+        padding: rem(10px);
+        display: flex;
+        gap: rem(20px);
+
+        &__img {
+            width: rem(100px);
+        }
+
+        &__ttl {
+            font-size: rem(16px);
+            line-height: 1.5;
+            display: block;
+            font-weight: 500;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+.p-post {
+    margin: rem(20px) 0;
+    display: flex;
+    align-items: center;
+    gap: rem(10px);
+    flex-wrap: wrap;
+
+    @include mq("md", min) {
+        gap: rem(20px);
+    }
+
+    &__writer {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: rem(5px);
+
+            @include mq("md") {
+                font-size: rem(13px);
+            }
+        }
+
+        img {
+            width: rem(20px);
+            height: rem(20px);
+            border-radius: 50%;
+            margin-right: rem(5px);
+
+            @include mq("md", min) {
+                width: rem(35px);
+                height: rem(35px);
+            }
+
+        }
+    }
+
+    &__link {
+        font-weight: bold;
+
+        @include mq("md") {
+            font-size: rem(13px);
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    &__date {
+        font-weight: 500;
+
+        @include mq("md") {
+            font-size: rem(13px);
+        }
+    }
+
+    &__view {
+        font-weight: 700;
+        background: url(../images/ic_eye.svg) no-repeat left center;
+        background-size: rem(50px) rem(25px);
+        padding-left: rem(45px);
+    }
+}
+
+.p-faq {
+    background: url(../images/backgoround-4.png) no-repeat top center;
+    background-size: cover;
+    padding: rem(20px) 0;
+
+    @include mq("md", min) {
+        padding: rem(50px) 0;
+    }
+
+    &.--lp {
+        background: none;
+
+        .p-faq__ttl {
+            color: $lp-red;
+            font-family: $font-Balo;
+            font-weight: 800;
+            font-size: rem(24px);
+            line-height: 1.5;
+
+            @include mq("md", min) {
+                font-size: rem(40px);
+            }
+        }
+
+        .p-faq__img {
+            border: 1px solid $lp-red;
+            border-radius: rem(20px);
+            overflow: hidden;
+        }
+
+        .faq-item {
+            font-family: $font-Sami;
+
+            &__head {
+                border: 1px solid $lp-red;
+
+                .ic.ic-plus {
+
+                    &:after,
+                    &:before {
+                        background: $lp-red;
+                    }
+                }
+            }
+
+            &__body {
+                color: #474747;
+            }
+        }
+    }
+
+    &__wrap {
+        @include mq("md", min) {
+            display: flex;
+            gap: rem(60px);
+        }
+    }
+
+    &__ttl {
+        margin-bottom: rem(20px);
+
+        @include mq("md", min) {
+            margin-bottom: rem(50px);
+        }
+    }
+
+    &__img {
+        margin-bottom: rem(15px);
+
+        @include mq("md", min) {
+            margin-bottom: 0;
+            width: 30%;
+            min-height: rem(300px);
+            max-height: rem(500px);
+        }
+    }
+
+    &__content {
+        @include mq("md", min) {
+            width: 70%;
+        }
+    }
+
+    .faq-item {
+        margin-bottom: rem(10px);
+
+        @include mq("md", min) {
+            margin-bottom: rem(20px);
+        }
+
+        &__head {
+            cursor: pointer;
+            width: 100%;
+            background: $white;
+            border-radius: rem(10px);
+            border: rem(2px) solid $primary;
+            font-size: rem(15px);
+            padding: rem(10px) rem(25px) rem(10px) rem(10px);
+            font-weight: $font-weight-medium;
+            position: relative;
+
+            @include mq("md", min) {
+                border-radius: rem(20px);
+                padding: rem(15px) rem(15px);
+                font-size: rem(18px);
+            }
+
+            .ic {
+                position: absolute;
+                right: rem(10px);
+                top: 50%;
+                transform: translateY(-50%);
+                width: rem(10px);
+                height: rem(10px);
+
+                @include mq("md", min) {
+                    width: rem(16px);
+                    height: rem(16px);
+                    right: rem(40px);
+                }
+
+                &.ic-plus {
+                    &:before {
+                        width: 2px;
+                        height: rem(10px);
+                        background: $primary;
+                        position: absolute;
+                        content: "";
+                        left: 50%;
+                        top: 0;
+                        transform: translateX(-50%);
+
+                        @include mq("md", min) {
+                            width: rem(3px);
+                            height: rem(16px);
+                        }
+                    }
+
+                    &:after {
+                        width: rem(10px);
+                        height: 2px;
+                        background: $primary;
+                        position: absolute;
+                        content: "";
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        @include mq("md", min) {
+                            width: rem(16px);
+                            height: rem(3px);
+                        }
+                    }
+                }
+
+                &.ic-minus {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &__body {
+            display: none;
+            font-size: rem(14px);
+            padding: rem(10px) 0;
+
+            @include mq("md", min) {
+                font-size: rem(17px);
+                padding: rem(15px) rem(15px);
+            }
+        }
+    }
+}
+
+.c-tag {
+    display: inline-block;
+    border: 1px solid $primary;
+    color: $primary;
+    font-size: rem(14px);
+    padding: rem(3px) rem(5px);
+    border-radius: rem(5px);
+    margin-right: rem(3px);
+    transition: all 0.3s;
+    margin-bottom: rem(4px);
+
+    @include mq("md", min) {
+        font-size: rem(16px);
+        margin-right: rem(5px);
+        padding: rem(7px) rem(10px);
+        border-radius: rem(5px);
+    }
+
+    &:hover {
+        background: $primary;
+        color: $white;
+    }
+}

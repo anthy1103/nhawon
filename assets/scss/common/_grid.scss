@@ -1,0 +1,17 @@
+.container {
+    margin: auto;
+    max-width: rem(1500 + $grid-gutter-width*2);
+    padding-left: rem($grid-gutter-width);
+    padding-right: rem($grid-gutter-width);
+    width: 100%;
+}
+.img-100{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img-scale{
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}

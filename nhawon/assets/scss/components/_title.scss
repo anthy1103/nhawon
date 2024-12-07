@@ -1,0 +1,28 @@
+.ttl02 {
+    font-weight: bold;
+    color: $primary-2;
+    font-size: rem(18px);
+    text-align: center;
+
+    @include mq("md", min) {
+        font-size: rem(35px);
+    }
+}
+.ttl01 {
+    text-transform: uppercase;
+    font-size: rem(25px);
+    font-weight: $font-weight-semibold;
+    text-align: center;
+    color: $primary;
+    @include mq("md", min) {
+        font-size: rem(35px);
+    }
+}
+.ttl-related {
+    border-bottom: 1px solid #ccc;
+    margin-top: rem(20px);
+    font-size: rem(17px);
+    @include mq("md", min) {
+        font-size: rem(25px);
+    }
+}

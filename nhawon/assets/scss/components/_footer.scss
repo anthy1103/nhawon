@@ -1,0 +1,117 @@
+.p-footer {
+    background: #eee;
+    background-size: cover;
+    padding: rem(50px) 0 rem(90px);
+
+    &-content {
+        @include mq("md", min) {
+            display: flex;
+            gap: 4%;
+            justify-content: space-between;
+        }
+    }
+
+    .logofooter {
+        max-width: rem(260px);
+    }
+
+    &-item {
+
+        font-size: rem(14px);
+
+        @include mq("md", min) {
+            font-size: rem(16px);
+            width: 20%;
+
+            &.--01 {
+                width: 40%;
+            }
+
+        }
+
+        &__ttl {
+            color: $primary;
+            font-size: rem(18px);
+            font-weight: bold;
+            margin-bottom: rem(5px);
+            margin-top: rem(15px);
+            @include mq("md", min) {
+                margin-top: 0;
+                margin-bottom: rem(23px);
+                font-size: rem(22px);
+            }
+        }
+
+        &__lst li a {
+            display: block;
+            padding: rem(5px) 0;
+            transition: all 0.3s;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .social {
+            margin-top: rem(10px);
+
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: rem(10px);
+                transition: all 0.3s;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: rem(10px);
+                }
+
+                .img {
+
+                    width: rem(40px);
+                    height: rem(40px);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1rem;
+
+                    &.--img-01 {
+                        background: #3c599b;
+                    }
+
+                    &.--img-02 {
+                        background: #fb000f;
+                    }
+
+                    &.--img-03 {
+                        background: #cd2e80;
+                    }
+
+                    &.--img-04 {
+                        background: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        margin-top: rem(59px);
+        color: $white;
+        font-size: rem(12px);
+
+        @include mq("md", min) {
+            font-size: rem(16px);
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+}
